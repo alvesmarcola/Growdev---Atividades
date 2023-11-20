@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: justify;
+    justify-content: center;
+}
+
+body{
+    margin-left: 80px;
+    margin-right: 80px;
+    background-color: whitesmoke;
+}
+
+h1, h2, h3{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+    .notas{
+        border: 2px solid black;
+    }

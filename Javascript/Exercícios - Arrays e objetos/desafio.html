@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Gerenciar uma biblioteca de livros em JavaScript, permitindo a adição de livros, a remoção de um livro específico e a marcação de livros como lidos.
+
+        // Passos do Exercício:
+
+        // Definir uma biblioteca de livros:
+        // Crie um array vazio chamado "biblioteca" para armazenar os livros.
+        // Adicionar livros à biblioteca:
+        // Crie objetos para representar os livros com informações como título, autor, número de páginas e se foram lidos.
+        // Use push() para adicionar esses objetos à "biblioteca".
+        // Exibir a biblioteca no console:
+        // Utilize um loop for...of para percorrer a "biblioteca" e exibir informações de cada livro no console.
+        // Remover um livro específico:
+        // Crie um novo array vazio chamado "novaBiblioteca".
+        // Use um loop for...of para percorrer a "biblioteca" e copiar os livros desejados para a "novaBiblioteca".
+        // Atribua o valor de "novaBiblioteca" a "biblioteca" para atualizar a lista de livros.
+        // Marcar um livro como lido:
+        // Utilize um loop for...of para percorrer a "biblioteca" e, quando encontrar o livro desejado, atualize a propriedade "lido" para true.
+        // Exibir a biblioteca atualizada no console:
+        // Utilize um loop for...of para percorrer a "biblioteca" e exibir informações de cada livro no console após as modificações.
+
+        biblioteca = []
+
+        while (true) {
+            let titulo = prompt("Informe o título do livro :")
+            let autor = prompt("Informe o autor:")
+            let numeroPaginas = parseInt(prompt("Informe o número de paginas"))
+            const lido = prompt("O livro foi lido? (Sim ou Não)").toLowerCase() === 'sim'
+                
+
+            biblioteca.push({ titulo, autor, numeroPaginas, lido })
+
+            let resposta = prompt("Deseja cadastrar outra livro? (s/n)").toUpperCase('s')
+            if (resposta !== "n") {
+                break;
+            }
+        }
+
+        for (biblioteca of novaBiblioteca){
+            
+        }
+
+        console.log("Biblioteca:");
+        for (const livro of biblioteca) {
+        console.log(`Título: ${livro.titulo}, Autor: ${livro.autor}, Páginas: ${livro.numPaginas}, Lido: ${livro.lido ? "Sim" : "Não"}`)
+// }
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

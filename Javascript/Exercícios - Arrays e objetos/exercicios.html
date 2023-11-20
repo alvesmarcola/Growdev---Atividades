@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios</title>
+    <script>
+     const data = [
+{
+nome: 'Roger Medeiros',
+sexo: 'M',
+salario: 3250,
+},
+{
+nome: 'Carolina Silva',
+sexo: 'F',
+salario: 1200,
+},
+{
+nome: 'Cristina Avila',
+sexo: 'F',
+salario: 8100,
+},
+{
+nome: 'Gustavo Hoffman',
+sexo: 'M',
+salario: 5200.35,
+},
+{
+nome: 'Eva Trindade',
+sexo: 'F',
+salario: 2501,
+},
+{
+nome: 'Andre Mathias',
+sexo: 'M',
+salario: 1750,
+},
+{
+nome: 'Joice Castro da Silva',
+
+sexo: 'F',
+salario: 3350.25,
+},
+];
+
+// 1. Imprima no console a quantidade de pessoas Total. *
+// 2. Imprima no console a quantidade de pessoas pessoas do sexo
+// Feminino. *
+// 3. Imprima no console a soma do salário de todas as pessoas. *
+// 4. Imprima no console a média do salário de todas as pessoas. * 
+// 5. Imprima no console a soma do salário de todos as pessoas do sexo
+// Masculino *
+// 6. Imprima no console a média do salário de todas as pessoas do sexo
+// Masculino *
+// 7. Utilize a função Some, para descobrir se existe algum salário
+// superior a R$ 7.000, imprima verdadeiro no console caso exista, caso
+// contrário falso. *
+// 8. Utilize a função findIndex, para descobrir a posição da pessoa de
+// nome 'Eva Trindade'.
+// 9. Utilize a função filter, para filtrar todas pessoas que o nome possua o
+// sobrenome "Silva".
+// 10. Imprima os nomes utilizando o MAP
+
+    console.log('Quantidade total de pessoas:', data.length)
+
+    const contadorF = data.filter((pessoa) => pessoa.sexo === 'F').length
+    console.log('Quantidade de pessoas do sexo feminino:', contadorF)
+
+    //Reduce já soma tudo direto os numero
+    const somaSalarios = data.reduce((total, pessoa) => total + pessoa.salario, 0)
+    console.log(somaSalarios)
+
+    function mSalarios(){
+        const salarios = data.map(pessoa => pessoa.salario)
+        const mediaSalarios = salarios.reduce((total, salario) => total + salario, 0) / salarios.length
+        return mediaSalarios.toFixed(2)
+    }
+
+    console.log(mSalarios())
+
+    const contadorM = data.filter((pessoa) => pessoa.sexo === 'M').length
+    console.log('Quantidade de pessoas do sexo masculino:', contadorM)
+
+    function salarioM() {
+    const salariosMasculinos = data.filter(pessoa => pessoa.sexo === 'M')
+    const somaM = salariosMasculinos.reduce((total, pessoa) => total + pessoa.salario, 0)
+
+ 
+    const salarioMasculino = somaM / salariosMasculinos.length
+
+    return salarioMasculino.toFixed(2)
+}
+
+    console.log('A média de salario masculino é:')
+    console.log(salarioM())
+
+    function salarioTotal() {
+    const sMasculinos = data.filter(pessoa => pessoa.sexo === 'M')
+    const somaT = sMasculinos.reduce((total, pessoa) => total + pessoa.salario, 0)
+
+    return somaT.toFixed(2)
+}
+
+    console.log('A soma dos salários masculinos é:')
+    console.log(salarioTotal())
+
+
+
+    function some() {
+    const salarioSuperior = data.some(pessoa => pessoa.salario > 7000) //verifica se pelo menos um elemento no array satisfaz a condição especificada
+    console.log(salarioSuperior)
+    }
+
+    some()
+
+// 8. Utilize a função findIndex, para descobrir a posição da pessoa de
+// nome 'Eva Trindade'.
+
+    function eva (){
+        const nomeEva = data.findIndex(pessoa => pessoa.nome === 'Eva Trindade')
+        return nomeEva
+    }
+
+    console.log(eva())
+
+
+
+// 9. Utilize a função filter, para filtrar todas pessoas que o nome possua o
+// sobrenome "Silva".
+
+    function silva(){
+        const silvas = data.filter(pessoa => pessoa.nome.includes('Silva'))
+        return silvas
+    }
+
+    console.log(silva())
+
+// 10. Imprima os nomes utilizando o MAP
+
+    function nomes(){
+        const n = data.map(pessoa => pessoa.nome)
+        return n
+    }
+
+    console.log(nomes())
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

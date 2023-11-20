@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+    <script>
+        function saudacao () {
+            console.log("oi rsrs")
+        }
+
+        saudacao()
+
+        
+
+        function notas (nota1, nota2) {
+            return (nota1 + nota2)/ 2
+        }
+
+
+        let nota1 = parseInt(prompt('Informe a primeira nota:'))
+        let nota2 = parseInt(prompt('Infome a segunda nota:'))
+
+
+        console.log(notas(nota1, nota2))
+
+
+        function calcularArea (raio){
+            const pi = 3.14
+            const area = pi * raio * raio
+
+
+            return area
+        }
+
+        const raioCirculo = 5
+        const areaCalculada = calcularArea (raioCirculo)
+
+        console.log(areaCalculada)
+
+        let num1 = 15
+        const num2 = 2
+
+        function calculaNumero (vezes) {
+            return num1 * num2
+        }
+
+        console.log(calculaNumero(num1,num2))
+
+        let contador = 1
+
+        function contar (){
+            return ++contador
+        }
+
+        console.log(contar(contador))
+
+        // Desenvolver uma função em JavaScript que receba um array de notas, 
+        //calcule a média das notas e determine se o aluno foi aprovado ou reprovado, com base em uma média mínima de 7.
+
+        const notas = [3, 5 , 4 , 7 , 10]
+
+
+            function calcularMedia(notas) {
+                let soma = 0
+                for (let nota of notas) {
+                    soma += nota
+                }
+                const media = soma / notas.length
+                
+                if (media >= 7) {
+                    console.log('aprovado paizao boa')
+                } else {
+                    console.log('reprovado burro kjkjkj')
+                }
+}
+
+calcularMedia(notas)
+
+
+const pessoas = [
+    { nome: "João", sexo: "M", salario: 2500 },
+    { nome: "Maria", sexo: "F", salario: 3200 },
+    { nome: "Pedro", sexo: "M", salario: 2000 },
+    { nome: "Ana", sexo: "F", salario: 2800 },
+    { nome: "Carlos", sexo: "M", salario: 3500 }
+]
+
+// Dado um array de números, exiba cada número multiplicado por 3 no console.
+// Dado um array de idades, crie um novo array contendo apenas as idades maiores ou iguais a 18.
+// Dado um array de produtos, encontre o primeiro produto que tenha o preço menor que 50.
+// Dado um array de nomes, encontre o índice do primeiro nome que tenha mais de 6 caracteres.
+
+// Utilizando forEach para exibir os nomes:
+pessoas.forEach(function (pessoa) {
+    console.log(pessoa)
+})
+// Usando findIndex para encontrar índice do primeiro homem:
+const primeiroH = pessoas.findIndex(function (pessoa) {
+    return pessoa.sexo == 'M'
+
+})
+
+console.log(primeiroH)
+// Utilizando find para encontrar a primeira mulher:
+const primeiraM = pessoas.find(function (pessoa) {
+    return pessoa.sexo == 'F'
+
+})
+console.log(primeiraM)
+// Usando filter para encontrar pessoas com salário maior que 2500:
+const maiorS = pessoas.filter(function (pessoa) {
+    return pessoa.salario > 2500
+
+})
+console.log(maiorS)
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

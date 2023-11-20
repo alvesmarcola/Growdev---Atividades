@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos</title>
+    <script>
+        // const nomes = []
+        // const emails = []
+        // const telefone = []
+
+
+        // const pessoa = [
+        //     ['Marco']
+        //     ['marco123@gmail.com']
+        //     ['9705-3527']
+        // ]
+
+        // const pessoa = {
+        //     nome: 'marco',
+        //     email : 'marcolas@gmail.com',
+        //     telefone : '54997053527'
+        // }
+
+        // document.write(pessoa.nome, pessoa.email, pessoa.telefone)
+
+        const carro = {}
+
+        carro.marca = "BMW"
+        carro.modelo = "X1"
+        carro.ano = 2021
+        carro.cor = "Branco"
+
+        console.log(carro)
+
+
+        const titulo = "Roube como um artista"
+        const autor = "Austin Kleon"
+        const ano = 2015
+
+        const livro = {
+            titulo,
+            autor,
+            ano,
+        }
+
+        console.log(livro)
+
+
+        const aluno = {
+            nome: 'marco',
+            idade : '17',
+            curso : 'FullStack'
+        }
+
+        console.log(aluno.nome)
+
+        aluno.curso = 'Frontend'
+
+        aluno.nota = '7'
+        
+        console.log(aluno.nota, aluno.curso)
+
+
+        for (let chave in livro){
+            console.log(chave)
+        }
+
+        const livro3 = {
+
+        }
+
+        for (let chave in livro){
+            livro3[chave] = livro[chave]
+        }
+
+        console.log(livro3)
+
+
+        // // Cadastro de produtos (nome, preço, categoria)
+
+        const produtos = [
+            {nome: 'Iphone', preco: 3000, categoria: 'Eletrônicos'},
+            {nome: 'Notebook', preco: 3900, categoria: 'Eletrônicos'},
+            {nome: 'Camisa de time', preco: 130, categoria: 'Vestuário'}
+        ]
+
+        // for (let produto of produtos) {
+        //     console.log(`Produto: ${produto}, Preço: ${produto}, Categoria: ${categoria}`)
+        // }
+
+        // //Filmes (titulo, diretor, gênero) -> filmes
+
+        // const filmes = [
+        //     {titulo: 'It a coisa', diretor: 'n/s', genero: 'Terror'},
+        //     {titulo: 'Paul o Alien Fugitivo', diretor: 'n/s', genero: 'Comédia'},
+        //     {titulo: 'Gente Grande', diretor: 'n/s', genero: 'Comédia'},
+        //     {titulo: 'Clube da luta', diretor: 'n/s', genero: 'Superação'},
+        //     {titulo: 'Avatar 2', diretor: 'n/s', genero: 'Ficção'}
+        // ]
+
+        // for (let filme of filmes) {
+        //     console.log(`Título: ${titulo}, Diretor: ${diretor}, Gênero: ${genero}`)
+        // }
+
+        // Alunos (nome, idade , curso, nota) -> 5 alunos
+
+        const alunos = [
+
+        ]
+
+        for (let aluno of alunos) {
+            console.log()
+        }
+
+
+        // Cadastro de pessoas via prompt (nome, idade, cidade)
+
+        let cadastro = []
+
+        while (true) {
+            let nome = prompt("Informe seu nome:");
+            let idade = prompt("Informe sua idade:");
+            let cidade = prompt("Informe sua cidade");
+
+            cadastro.push({ nome, idade, cidade });
+
+            let resposta = prompt("Deseja cadastrar outra pessoa? (S/N)").toUpperCase();
+            if (resposta !== "s") {
+                break;
+            }
+}
+        
+
+        console.log(cadastro)
+
+
+        
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

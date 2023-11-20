@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+    <script>
+
+// Filtrar Carros por Faixa de Preço: Crie uma função que recebe dois argumentos, preço mínimo e preço máximo, e retorna todos os carros cujo valor está dentro desta faixa. *
+
+// Encontrar o Carro Mais Caro: Utilize métodos de array para encontrar o carro mais caro do array. *
+
+// Agrupar Carros por Marca: Escreva uma função que agrupe carros por marca e retorne um objeto cujas chaves são os nomes das marcas e os valores são arrays de carros dessa marca. *
+
+// Calcular a Média de Preço dos Carros: Implemente uma função que calcule e retorne a média de preço de todos os carros da lista. *
+
+// Listar Carros por Ordem Alfabética: Desenvolva uma função que retorne os carros ordenados alfabeticamente por modelo.  *
+
+// Contar Carros por Cor: Elabore uma função que conte quantos carros de cada cor existem na lista e retorne um objeto com esta contagem. *
+
+// Converter Array para String: Crie uma função que converte o array de carros em uma string formatada, listando os detalhes de cada carro. *
+
+// Buscar Carros por Características Específicas: Implemente uma função que permite buscar carros por múltiplos critérios, como cor, marca, ano, etc. Como se fosse uma barra de pesquisa. *
+
+       const carros =  [ {
+    id: '61',
+    modelo: 'Truck',
+    marca: 'Ford',
+    ano: 2021,
+    cor: 'White',
+    preco: 35000
+  },
+  {
+    id: '78',
+    modelo: 'SUV',
+    marca: 'Toyota',
+    ano: 2022,
+    cor: 'White',
+    preco: 20000
+  },
+  {
+    id: '2',
+    modelo: 'Truck',
+    marca: 'Honda',
+    ano: 2022,
+    cor: 'Blue',
+    preco: 35000
+  },
+  {
+    id: '17',
+    modelo: 'Hatchback',
+    marca: 'Toyota',
+    ano: 2022,
+    cor: 'Black',
+    preco: 30000
+  },
+  {
+    id: '27',
+    modelo: 'Truck',
+    marca: 'Ford',
+    ano: 2021,
+    cor: 'Red',
+    preco: 35000
+  },
+  {
+    id: '12',
+    modelo: 'Truck',
+    marca: 'Chevrolet',
+    ano: 2021,
+    cor: 'Black',
+    preco: 30000
+  },
+  {
+    id: '76',
+    modelo: 'Hatchback',
+    marca: 'Chevrolet',
+    ano: 2021,
+    cor: 'Blue',
+    preco: 25000
+  },
+  {
+    id: '58',
+    modelo: 'SUV',
+    marca: 'Ford',
+    ano: 2020,
+    cor: 'Red',
+    preco: 30000
+  },
+  {
+    id: '78',
+    modelo: 'Truck',
+    marca: 'Toyota',
+    ano: 2020,
+    cor: 'White',
+    preco: 20000
+  },
+  {
+    id: '41',
+    modelo: 'Hatchback',
+    marca: 'Ford',
+    ano: 2022,
+    cor: 'Black',
+    preco: 25000
+  }
+]
+
+// Encontrar o Carro Mais Caro: Utilize métodos de array para encontrar o carro mais caro do array.
+carros.sort((a, b) => b.preco - a.preco) // Aqui ele deixa os itens em lista decrescente, que obviamente deixa o mais caro como primeiro.
+
+const carroMaisCaro = carros[0] // Aqui fica 0 pq o mais caro vai ser o primeiro na lista, que começa por 0 sempre invés de 1.
+console.log('O carro mais caro é:', carroMaisCaro)
+
+
+
+// Converter Array para String: Crie uma função que converte o array de carros em uma string formatada, listando os detalhes de cada carro.
+
+function conversao (carrosArray) {
+    const carrosString = carrosArray.map(carro => {
+    return `Modelo: ${carro.modelo}, Marca: ${carro.marca}, Ano: ${carro.ano}, Cor: ${carro.cor}, Preço: ${carro.preco}`
+  }) // Aq o map pega cada item da array e retorna algo pra ela. 
+  
+  return carrosString.join('\n') // O join retorna várias strings e transforma numa só.
+}
+
+const carrosString = conversao(carros)
+console.log(carrosString)
+
+
+
+// Listar Carros por Ordem Alfabética: Desenvolva uma função que retorne os carros ordenados alfabeticamente por modelo.
+
+function ordemAlfabetica(carrosArray){
+    return carrosArray = carros.sort((a,b) => a.modelo.localeCompare(b.modelo))
+} // localCompare ordena as strings de acordo com a ordem alfabética, 
+
+const Alfabetica = ordemAlfabetica(carros)
+console.log(Alfabetica)
+
+
+
+// Contar Carros por Cor: Elabore uma função que conte quantos carros de cada cor existem na lista e retorne um objeto com esta contagem.
+function carrosCor(cores){
+  return cores.reduce((contagemCores, carro) => {
+    const cor = carro.cor
+    contagemCores[cor] = (contagemCores[cor] || 0) + 1 // || serve p contgem
+    return contagemCores
+
+  }, {}) // retorno do objeto
+}
+
+const cor2 = carrosCor(carros)
+console.log(cor2)
+
+// Agrupar Carros por Marca: Escreva uma função que agrupe carros por marca e retorne um objeto cujas chaves são os nomes das marcas e os valores são arrays de carros dessa marca. 
+const marcas = () => {
+  let arrayCarros = []
+  let obj = {}
+  
+  for (let carro of carros){
+    if(!arrayCarros.includes(carro.marca)) {
+      obj [carro.marca] = []
+    }
+  }
+  for (let carro of carros){
+    obj [carro.marca].push(carro.modelo)
+  }
+  console.log(obj)
+}
+
+
+// Calcular a Média de Preço dos Carros: Implemente uma função que calcule e retorne a média de preço de todos os carros da lista.
+
+function mediaLista(lista) {
+  // pega os preços e mete numa array
+  const precos = lista.map(carro => carro.preco)
+
+  const somaTotal = precos.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+
+  // faz a media
+  const mediaTotal = somaTotal / lista.length
+
+  return mediaTotal
+}
+
+const mediaPrecos = mediaLista(carros)
+console.log(`A média de preços é : ${mediaPrecos}`)
+
+// Filtrar Carros por Faixa de Preço: Crie uma função que recebe dois argumentos, preço mínimo e preço máximo, e retorna todos os carros cujo valor está dentro desta faixa.
+
+function faixaPreco(minimo, maximo) {
+    return carros
+        .filter(carro => carro.preco >= minimo && carro.preco <= maximo).map(carro => ({ modelo: carro.modelo, preco: carro.preco })) // novo array com as condições e atributos
+}
+
+let medias = faixaPreco(20000, 30000)
+console.log(`Carros na faixa de R$20,000 a R$30,000:`)
+console.log(medias)
+
+
+// Buscar Carros por Características Específicas: Implemente uma função que permite buscar carros por múltiplos critérios, como cor, marca, ano, etc. Como se fosse uma barra de pesquisa.
+
+  function buscaCriterio (criterios) {
+    return carros.filter (carro => {
+        for (let chave in criterios) {
+          if (carro[chave] !== criterios[chave]) { //acessando o objeto carro dinamicamente, tendo como escolher qlqr característica posteriormente 
+                return false
+        }
+        return true
+  }
+    })
+}
+
+let resultados = buscaCriterio({ ano: 2020 })
+console.log(resultados)
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

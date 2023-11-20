@@ -1,0 +1,27 @@
+*{
+    text-decoration: none;
+    list-style: none;
+}
+
+header nav ul{
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul li{
+    margin-left: 40px;
+}
+
+.igredientes{
+    display: flex;
+    
+    justify-content: center;
+}
+
+.sim{
+    text-align: center;
+}
+
+header, section{
+    border: solid black 0 2px 2px 2px;
+}

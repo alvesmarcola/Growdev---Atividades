@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    text-decoration: none;
+    list-style: none;
+    background-color: #483D8B;
+}
+
+header{
+    margin-top: 25px;
+    margin-bottom: 150px;
+    background-color: gray;
+}
+
+
+
+nav a{
+    margin-left: 50px;
+    color: aliceblue;
+    font-size: 1.3rem;
+}
+
+nav a:hover{
+    color:bisque;
+}
+
+.texto h1{
+    font-size: 1.8rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.texto span{
+    color: blueviolet;
+}
+
+.texto p{
+    color: aliceblue;
+    font-size: 1rem;
+    font-family: cursive;
+}
+
+#front-end, #desenvolvedor{
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.tecnologias ul  {
+    margin-bottom: 50px;
+}
