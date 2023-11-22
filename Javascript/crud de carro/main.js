@@ -148,7 +148,7 @@ function filtrarVeiculo() {
 
   if (veiculosFiltrados.length > 0) {
       veiculosFiltrados.forEach(veiculo => {
-          const { id, modelo, cor, preco } = veiculo;
+          const { id, modelo, cor, preco } = veiculo
           const infoVeiculo = `ID: ${id} | Modelo: ${modelo} | Cor: ${cor} | Preço: R$${preco} <br>`
           document.write(infoVeiculo)
       })
@@ -158,17 +158,23 @@ function filtrarVeiculo() {
 }
 
 function removerVeiculo() {
-  const identificador = prompt('Digite o ID do veículo a ser removido:')
-
-  const veiculoIndex = carros.findIndex(veiculo => veiculo.id === idParaRemover)
-
-  if (veiculoIndex !== -1) {
-      carros.splice(veiculoIndex, 1)
-      alert('Veículo removido com sucesso!')
-  } else {
-      alert('Veículo não encontrado.')
+    const idRemocao = prompt('Digite o ID do veículo a ser removido:')
+    const veiculoI = carros.findIndex(veiculo => veiculo.id == idRemocao)
+  
+    if (veiculoI !== -1) {
+        carros.splice(veiculoI, 1)
+        alert('Veículo removido com sucesso!')
+        limparTela()
+        listarCarros()
+    } else {
+        alert('Veículo não encontrado.')
+    }
+  
+    exibirOpcao()
   }
-
-  exibirOpcao()
-}
-
+  
+  function limparTela() {
+    document.getElementById('resultado').innerHTML = ''
+  }
+  
+  
