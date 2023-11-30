@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisão 30/11</title>
+    <style>
+
+        #circulo{
+            
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="red" id="circulo"></div>
+    <button onclick="pintardeVerde()">Verde</button>
+    <button onclick="pintardeVermelho()">Vermelho</button>
+    
+</body>
+
+<script>
+const circulo = document.querySelector('#circulo')
+
+function pintardeVermelho(){
+    circulo.style.backgroundColor = 'Red'
+}
+
+function pintardeVermelho(){
+    circulo.style.backgroundColor = 'Green'
+}
+
+const button = document.querySelector('button')
+
+
+function aparecerCirculo(){
+    document.body.innerHTML += `
+    <div id='circulo'></div>
+
+    ` 
+
+    const circulo = document.querySelector('#circulo')
+    circulo.setAttribute('class', ' circulo ')
+    circulo.setAttribute('onClick', 'adicionarClique()')
+    circulo.style.cursor = 'pointer'
+    circulo
+
+}
+
+
+
+</script>
+</html>

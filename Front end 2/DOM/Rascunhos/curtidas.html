@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sim</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    margin: 20px 0;
+    font-family: cursive;
+    color: purple;
+    font-size: 2rem;
+  }
+  
+  .presenca-container {
+    background-color: #fff;
+    padding: 40px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    margin-top: 20px;
+    margin-top: 250px;
+  }
+  
+  .contador {
+    font-size: 36px;
+    margin: 10px 0;
+  }
+
+  .app{
+    border-radius: 20px;
+  }
+    </style>
+</head>
+<body>
+
+    <div id="App"></div>
+    <script>
+        let titulo = document.createElement('h1')
+titulo.innerText = 'Contador de likes'
+
+let presenca = document.createElement('div')
+presenca.classList.add('presenca-container')
+
+let contador = document.createElement('p')
+contador.classList.add('contador')
+contador.innerText='0'
+
+let btn = document.createElement('button')
+btn.classList.add('btn')
+btn.innerText='Deixe o Like'
+btn.setAttribute('onclick','likes()')
+
+let msg = document.createElement('p')
+
+let corpo = document.getElementById('App')
+corpo.appendChild(titulo)
+corpo.appendChild(presenca)
+presenca.appendChild(contador)
+presenca.appendChild(btn)
+let soma=0
+function likes(){
+    soma++
+    contador.innerText=soma
+    if(soma==10){
+        msg.innerText='Postagem popular!'
+        msg.classList.add('green')
+        corpo.appendChild(msg)
+    }else if(soma==20){
+        msg.innerText='Postagem SUPER POPULAR !!'
+        msg.classList.remove('green')
+        msg.classList.add('red')
+    }
+}
+
+
+
+
+    </script>
+</body>
+</html>
