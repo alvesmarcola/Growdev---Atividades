@@ -1,36 +1,52 @@
-const name = prompt('Digite o nome do personagem:')
-const api = `https://rickandmortyapi.com/api/character"/?name=${name}`
 
+const name = prompt('Digite o nome do personagem:')
+const api = `https://rickandmortyapi.com/api/character/?name=${name}`
 
 axios
-.get(api)
-.then ((response) => {
+  .get(api)
+  .then((response) => {
     const characters = response.data.results
-    const listElements = document.getElementById(lista)
 
-    characters.forEach((characters) =>{
-        const li = document.createElement('li')
-        listElements.classList.add('item-character')
+    // aonde serão exibidos
+    const listElements = document.getElementById('lista')
 
-        const img = document.createElement('img')
-        img.src = characters.img
-        li.appendChild(img)
+    // Vai add cada personagem a Li item-character  e exibir as infos e img
+    characters.forEach((character) => {
+      const li = document.createElement('li')
+      li.classList.add('item-character') // add classe
 
-        const infos = document.createElement('div')
+      const img = document.createElement('img')
+      img.src = character.image; // aq vai retornar as img dos personagens vindo da API
+      li.appendChild(img) // addd img a li
+      
+      const infos = document.createElement('div')
 
-        const exibition = ['id', 'name', 'status', 'species', 'gender']
+      // Propriedades exibidas p cada personagem
+      const displayProperties = ['id', 'name', 'status', 'species', 'gender']
 
-        exibition.forEach((camp) =>{
-            const span = document.createElement('span')
-            span.textContent = `${camp} ${personagem[camp]}`
-            infos.appendChild(span)
-        })
+      // P cada propriedade cria um  span com seu valor e adiciona à div de informações
+      displayProperties.forEach((property) => {
+        const span = document.createElement('span')
+        span.textContent = `${property}: ${character[property]}`
+        infos.appendChild(span)
+      })
 
-        listElements.appendChild(infos)
-        listElement.appendChild(listElements)
+    //   const wallpaper = document.createElement('img')
+    //   wallpaper.src = './image.png'
+    //   infos.appendChild(wallpaper)
+
+      // Add de fato as infos a li
+      li.appendChild(infos)
+
+      // Add li a lista de personagens
+      listElements.appendChild(li)
+
+
+      // fazer footer, adicionando as infos da serie (PERSONAGENS: LOCALIZAÇÕES: PERSONAGENS: )
+
 
     })
-})
-.catch((error) =>{
-    alert('Erro', error)
-})
+  })
+  .catch((error) => {
+    alert('Erro: ', error)
+  })
