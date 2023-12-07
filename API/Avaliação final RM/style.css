@@ -25,3 +25,17 @@ footer{
     text-align: center;
     font-family: sans-serif;
 }
+
+
+.lista {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; 
+  }
+  
+  .ul {
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+  }
+  
