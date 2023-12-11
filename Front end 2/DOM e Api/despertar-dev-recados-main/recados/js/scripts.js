@@ -16,9 +16,28 @@ async function fetchMessages() {
       messageCard.innerHTML = `
         <h2 class="card-title">${message.title}</h2>
         <p class="card-description">${message.description}</p>
+        <div class="card-icons">
+          <i class="fas fa-solid fa-trash" data-id=${message.id}></i>
+          <i class="fas fa-regular fa-edit" data-id=${message.id}></i>
+        </div>
       `
 
       messagesContainer.appendChild(messageCard)
+
+      const deleteIcon = messageCard.querySelector('.fa-trash')
+
+      deleteIcon.addEventListener('click', () => {
+        const messageId = deleteIcon.getAttribute('data-id')
+
+        deleteMessage(messageId)
+      })
+
+      const editIcon = messageCard.querySelector('.fa-edit')
+      editIcon.addEventListener('click', () => {
+        const messageId = editIcon.getAttribute('data-id')
+
+        navigateToEditPage(messageId)
+      })
     });
 
     if (messages.length === 0) {
@@ -31,48 +50,9 @@ async function fetchMessages() {
   }
 }
 
-
-async function editMessages (){
-
-  const response = await api.get('/notes')
-  const messages = response.data
-
-
-
-}
-
 fetchMessages()
 
-
-
-
-
-formEditMessage.addEventListener('submit', (event) => {
-  event.preventDefault()
-
-  const titleValue = titleInput.value
-  const descriptionValue = descriptionInput.value
-
-
-  const editMessage = {
-    title: titleValue,
-    description: descriptionValue
-
-  }
-  updateMessage(messageId, editMessage)
-
-})
-
-async function populateEditForm(){
-  try{
-    const response = await api.get(`/notes/${messaged}`)
-    const message = response.data
-
-    titleInput.value = message.title
-    descriptionInput.value = message.description
-
-
-  } catch (error) {
-    console.error(error)
-  }
+function navigateToEditPage(messageId) {
+  location.href = `editar-recado.html?id=${messageId}`
 }
+

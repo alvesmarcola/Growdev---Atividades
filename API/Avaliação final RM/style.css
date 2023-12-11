@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+body{
+    background-color: #f8f8ff;
+}
+
 .title{
     color:#105718;
     font-size: 3.4rem;
@@ -17,6 +21,7 @@ header{
 
 footer{
     background-color: #1F2821;
+    height: 30vh;
 }
 
 .final-text{
@@ -39,3 +44,41 @@ footer{
     text-align: center;
   }
   
+  img{
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    display: block;
+    align-items: center;
+  }
+
+
+  #pesquisa {
+    border-radius: 8px;
+    color: #eaeaeb;
+    width: 50%;
+    height: 35px;
+    
+  }
+
+  input::placeholder {
+    text-indent: 10px; 
+    opacity: 0.5; 
+}
+
+input {
+    padding-left: 10px; 
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+img {
+    max-width: 100%; 
+}
+

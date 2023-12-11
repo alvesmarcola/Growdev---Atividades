@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Lista de Recados</title>
+    <link rel="shortcut icon" href="images/logo_growdev.svg" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body>
+    
+    <section id="section-form">
+
+        <form class="form">
+            <img src="images/logo_growdev.svg" alt="">
+            <p class="form-title">Entre em sua conta</p>
+             <div class="input-container">
+               <input type="email" placeholder="Seu email" id="email" required>
+               <span></span>
+           </div>
+           
+           <div class="input-container">
+               <input type="password" placeholder="Sua senha" id="password" required autocomplete="current-password">
+             </div>
+              <button type="submit" class="submit" id="submit">
+             Entrar
+           </button>
+     
+           <p class="signup-link">
+             Não tem conta?
+             <a href="#" onclick="openModal()">Cadastre-se</a>
+           </p>
+        </form>
+
+    </section>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal()" style="float: right; cursor: pointer;">&times;</span>
+            <h2>Formulário de Cadastro</h2>
+            <form>
+                
+                <label for="email-cadastro">Email:</label>
+                <input type="text" id="email-cadastro" name="email-cadastro"><br><br>
+                <label for="passwordCadastro">Senha:</label>
+                <input type="password" id="password-cadastro" name="password-cadastro" onsubmit="validatePassword()"><br><br>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </div>
+
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="js/login.js"></script>
+</html>
