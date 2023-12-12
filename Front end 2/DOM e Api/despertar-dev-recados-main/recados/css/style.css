@@ -188,3 +188,13 @@
     transition: color 0.3s ease;
 }
   
+/* Error and Success */
+.form-control.success input,
+.form-control.success textarea {
+  border-color: #2ecc71;
+}
+
+.form-control.error input,
+.form-control.error textarea {
+  border-color: #e74c3c;
+}

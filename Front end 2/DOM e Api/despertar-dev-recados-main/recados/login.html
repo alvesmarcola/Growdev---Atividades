@@ -12,7 +12,7 @@
     
     <section id="section-form">
 
-        <form class="form">
+        <form class="form" id="login">
             <img src="images/logo_growdev.svg" alt="">
             <p class="form-title">Entre em sua conta</p>
              <div class="input-container">
@@ -39,12 +39,12 @@
         <div class="modal-content">
             <span onclick="closeModal()" style="float: right; cursor: pointer;">&times;</span>
             <h2>Formulário de Cadastro</h2>
-            <form>
+            <form onsubmit="validatePassword()" id="cadastroForm">
                 
                 <label for="email-cadastro">Email:</label>
                 <input type="text" id="email-cadastro" name="email-cadastro"><br><br>
                 <label for="passwordCadastro">Senha:</label>
-                <input type="password" id="password-cadastro" name="password-cadastro" onsubmit="validatePassword()"><br><br>
+                <input type="password" id="password-cadastro" name="password-cadastro"><br><br>
                 <input type="submit" value="Enviar">
             </form>
         </div>
