@@ -1,51 +1,77 @@
+const inputPesquisa = document.getElementById('pesquisa');
 
-// const api = `https://rickandmortyapi.com/api/character/?name=${name}`
+inputPesquisa.addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+        const name = inputPesquisa.value;
 
-// axios
-//   .get(api)
-//   .then((response) => {
-//     const characters = response.data.results
+        if (name) {
+            searchCharacters(name);
+        } else {
+            alert('Por favor, insira um nome para pesquisar.');
+        }
+    }
+});
 
-//     // aonde serão exibidos
-//     const listElements = document.getElementById('lista')
+function searchCharacters(name) {
+    const api = `https://rickandmortyapi.com/api/character/?name=${name}`;
+    const listElements = document.getElementById('lista');
 
-//     // Vai add cada personagem a Li item-character  e exibir as infos e img
-//     characters.forEach((character) => {
-//       const li = document.createElement('li')
-//       li.classList.add('item-character') // add classe
+    axios.get(api)
+        .then((response) => {
+            const characters = response.data.results;
 
-//       const img = document.createElement('img')
-//       img.src = character.image; // aq vai retornar as img dos personagens vindo da API
-//       li.appendChild(img) // addd img a li
-      
-//       const infos = document.createElement('div')
+            // Limpar a lista antes de adicionar novos resultados
+            listElements.innerHTML = '';
 
-//       // Propriedades exibidas p cada personagem
-//       const displayProperties = ['id', 'name', 'status', 'species', 'gender']
+            characters.forEach((character) => {
+                const li = document.createElement('li');
+                li.classList.add('item-character');
 
-//       // P cada propriedade cria um  span com seu valor e adiciona à div de informações
-//       displayProperties.forEach((property) => {
-//         const span = document.createElement('span')
-//         span.textContent = `${property}: ${character[property]}`
-//         infos.appendChild(span)
-//       })
+                const img = document.createElement('img');
+                img.src = character.image;
+                li.appendChild(img);
 
-//     //   const wallpaper = document.createElement('img')
-//     //   wallpaper.src = './image.png'
-//     //   infos.appendChild(wallpaper)
+                const infos = document.createElement('div');
 
-//       // Add de fato as infos a li
-//       li.appendChild(infos)
+                const displayProperties = ['status', 'species', 'gender'];
 
-//       // Add li a lista de personagens
-//       listElements.appendChild(li)
+                displayProperties.forEach((property) => {
+                    const span = document.createElement('span');
+                    span.textContent = `${property}: ${character[property]}`;
+                    infos.appendChild(span);
+                });
+
+                li.appendChild(infos);
+                listElements.appendChild(li);
+            })
+            
+            fetchInfo('https://rickandmortyapi.com/api/character/', 'PERSONAGENS')
+            fetchInfo('https://rickandmortyapi.com/api/location/', 'LOCALIZAÇÕES')
+            fetchInfo('https://rickandmortyapi.com/api/episode/', 'EPISÓDIOS')
+        })
+        .catch((error) => {
+            alert('Erro ao buscar personagens:', error);
+        });
+}
 
 
-//       // fazer footer, adicionando as infos da serie (PERSONAGENS: LOCALIZAÇÕES: PERSONAGENS: )
 
 
-//     })
-//   })
-//   .catch((error) => {
-//     alert('Erro: ', error)
-//   })
+
+const serieInfo = document.getElementById('serie');
+
+function fetchInfo(url, label) {
+    axios.get(url)
+        .then((response) => {
+            const count = response.data.info.count;
+            const paragraph = document.createElement('p');
+            paragraph.textContent = `${label}: ${count || 'XX'}`;
+            serieInfo.appendChild(paragraph);
+        })
+        .catch((error) => {
+            console.error(`Erro ao buscar informações de ${label}:`, error);
+            const paragraph = document.createElement('p').style = "color: white;"
+            paragraph.textContent = `${label}: XX`;
+            serieInfo.appendChild(paragraph);
+        });
+}

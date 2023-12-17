@@ -3,6 +3,7 @@ const form = document.getElementById('login')
 form.addEventListener("submit", async function(event) {
   event.preventDefault()
 
+  let name = document.getElementById("name").value
   let username = document.getElementById("email").value
   let password = document.getElementById("password").value
 
@@ -47,7 +48,7 @@ cadastroForm.addEventListener("submit", async function(event) {
 
 async function loginUser(userData) {
   try {
-      const response = await axios.post("https://65089a2a56db83a34d9c8c86.mockapi.io/api/v1/login", userData)
+      const response = await api.post("https://65089a2a56db83a34d9c8c86.mockapi.io/api/v1/login", userData)
       
       // Lógica de sucesso de login: redireciona para a página dos recados (index.html) ou realiza outras operações necessárias
       window.location.href = "index.html"
@@ -80,7 +81,7 @@ function openModal() {
 
   async function createUser(userData) {
     try {
-        const response = await axios.post("https://65089a2a56db83a34d9c8c86.mockapi.io/api/v1/users", userData)
+        const response = await api.post("https://65089a2a56db83a34d9c8c86.mockapi.io/api/v1/users", userData)
         
         if (response.status === 201) {
             // Salvando os dados no localStorage
@@ -125,4 +126,24 @@ function validatePassword() {
 
 
 
+    // sair
+
+    localStorage.removeItem('name')
     
+
+    let currentPage = 1 // começa no 1
+
+    function paginacao() {
+        let paginaPosterior = currentPage + 1
+        let paginaPosteriorPlus = currentPage + 2
+    
+        const pageNumbersDiv = document.getElementById("pageNumbers")
+  
+        pageNumbersDiv.innerHTML = `
+            <button class="active" onclick="fetchMessages(${currentPage})">${currentPage}</button>
+            <button onclick="fetchMessages(${paginaPosterior})">${paginaPosterior}</button>
+            <button onclick="fetchMessages(${paginaPosteriorPlus})">${paginaPosteriorPlus}</button>
+        `
+    }
+    
+    paginacao()
