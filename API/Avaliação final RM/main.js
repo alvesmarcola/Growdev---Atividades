@@ -44,10 +44,7 @@ function searchCharacters(name) {
                 li.appendChild(infos);
                 listElements.appendChild(li);
             })
-            
-            fetchInfo('https://rickandmortyapi.com/api/character/', 'PERSONAGENS')
-            fetchInfo('https://rickandmortyapi.com/api/location/', 'LOCALIZAÇÕES')
-            fetchInfo('https://rickandmortyapi.com/api/episode/', 'EPISÓDIOS')
+
         })
         .catch((error) => {
             alert('Erro ao buscar personagens:', error);
@@ -55,23 +52,14 @@ function searchCharacters(name) {
 }
 
 
+// infos no footer
 
-
-
-const serieInfo = document.getElementById('serie');
-
-function fetchInfo(url, label) {
-    axios.get(url)
-        .then((response) => {
-            const count = response.data.info.count;
-            const paragraph = document.createElement('p');
-            paragraph.textContent = `${label}: ${count || 'XX'}`;
-            serieInfo.appendChild(paragraph);
-        })
-        .catch((error) => {
-            console.error(`Erro ao buscar informações de ${label}:`, error);
-            const paragraph = document.createElement('p').style = "color: white;"
-            paragraph.textContent = `${label}: XX`;
-            serieInfo.appendChild(paragraph);
-        });
-}
+async function footer() {
+    const personagens = await axios.get(`https://rickandmortyapi.com/api/character`)
+    document.getElementById('p').innerText = personagens.data.info.count
+    const localizacoes = await axios.get(`https://rickandmortyapi.com/api/location`)
+    document.getElementById('l').innerText = localizacoes.data.info.count
+    const episodios = await axios.get(`https://rickandmortyapi.com/api/episode`)
+    document.getElementById('e').innerText = episodios.data.info.count
+    return personagens.data.info.pages
+  }

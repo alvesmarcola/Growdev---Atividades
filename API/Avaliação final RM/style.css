@@ -24,6 +24,7 @@ header{
 footer{
     background-color: #1F2821;
     height: 30vh;
+    color: #fff;
 }
 
 .final-text{
@@ -55,22 +56,28 @@ footer{
   }
 
 
-  #pesquisa {
-    border-radius: 8px;
-    color: #eaeaeb;
-    width: 50%;
-    height: 35px;
-    
+
+  .input-container {
+    position: relative;
+    width: 450px;
   }
-
-  input::placeholder {
-    text-indent: 10px; 
-    opacity: 0.5; 
-}
-
-input {
-    padding-left: 10px; 
-}
+  
+  .input-container i {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+  }
+  
+  input[type="text"] {
+    padding-right: 30px; 
+    width: 100%;
+    box-sizing: border-box;
+    height: 35px;
+    border-radius: 5px;
+  }
+  
+  
 main {
     display: flex;
     flex-direction: column;
