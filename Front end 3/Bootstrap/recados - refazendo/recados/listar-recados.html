@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listagem de Recados</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap"
+    rel="stylesheet">
+
+  <!--Link bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <!--icons-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  
+  
+  <div class="container">
+      
+    </div>
+    <header class="header">
+      <img class="logo" src="./images/logo.svg" alt="">
+
+      <h1 class="title">Lista de Recados</h1>
+      <h2 class="subtitle">Todos os meus recados</h2>
+    </header>
+
+    <main>  
+        <div class="row">
+          <div class="col">
+            <div class="messages-list"></div>
+          </div>
+        </div>
+    
+      <div class="pagination">
+        <button id="prevPage">Anterior</button>
+        <div id="pageNumbers"></div>
+        <button id="nextPage">Próxima</button>
+      </div>
+    </main>
+
+
+  </div>
+
+
+
+  <script src="https://kit.fontawesome.com/f9e19193d6.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="js/deleteMessage.js"></script>
+</body>
+
+</html>
