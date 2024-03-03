@@ -1,0 +1,5 @@
+<?php
+
+$ato = new Gato();
+
+?>
