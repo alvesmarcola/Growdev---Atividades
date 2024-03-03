@@ -43,6 +43,30 @@ var_dump(mediaPonderada);
 
 // Atividade 3
 
+$produtos = array();
 
+function cadastrarProdutos($produto) {
+    global $produtos;
+    $produtos[] = $produto;
+}
+
+function excluirProdutos($produto) {
+    global $produtos;
+    $posicao = array_search($produto, $produtos);
+    unset($produtos[$posicao]);
+}
+
+function listarProdutos() {
+    global $produtos;
+    foreach ($produtos as $produto) {
+        echo $produto. "<br>";
+    }
+}
+
+cadastrarProdutos("meia");
+cadastrarProdutos("sapatos");
+cadastrarProdutos("cadarços");
+excluirProdutos("meia");
+listarProdutos();
 
 ?>
